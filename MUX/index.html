@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- the three things that jQuery Mobile needs to work -->
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+    <!-- theme roller links -->
+    <link rel="stylesheet" href="css/themes/freshway.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <!-- font-ubuntu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/ac9c62cfd2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</head>
+
+<body>
+    <div class="preload">
+        <nav class="nav">
+            <div class="nav__sidebar">
+                <div class="nav__links">
+                    <header class="nav-header">
+                        <div class="ui-oval-nav">
+                            <div class="ui-over-nav">
+                                <div class="ui-grid-b">
+                                    <a class="nav-ui-link" href="#profile">
+                                        <div class="ui-block-a nav-pro-button">
+                                            <img class="ui-image" src="images/noun_profile_232455 2.png">
+                                        </div>
+                                        <div class="ui-block-b nav-pro-details">
+                                            <div id="nav_user_name" class="nav-user-name">Lewis Hamilton</div>
+                                            <div id="nav_user_email" class="nav-user-email">Lewis@gmail.com</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="nav-header-image center">
+                                    <a href="#cart"><img src="images/cartnav.png"></a>
+                                    <a href="#wishlist"><img src="images/wishlist.png"></a>
+                                    <a href="#profile"><img src="images/settings.png"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div id="nav-content">
+                        <a class="nav__link" href="#home">
+                            <i class="fas fa-home"></i>Home
+                        </a>
+                        <a class="nav__link" href="#">
+                            <i class="fa fa-th-large"></i>Categories
+                        </a>
+                        <a class="nav__link" href="#">
+                            <i class="fas fa-users"></i>About Us
+                        </a>
+                        <a class="nav__link" href="#">
+                            <i class="fas fa-shopping-cart"></i>My Orders
+                        </a>
+                        <a class="nav__link" href="#logout">
+                            <i class="fas fa-sign-out-alt"></i>Log out
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav__overlay"></div>
+        </nav>
+    </div>
+    <div data-role="page" data-theme="d" id="landing" class="ui-body">
+        <div class="ui-oval">
+            <div data-role="main" class="ui-over">
+                <div class="greeting-1">Good Evening!</div>
+                <div id="user_name" class="user-name"><br></div>
+                <div class="greeting-2">Hope you are having a good day! </div>
+                <div class="landing-image"><img
+                        src="images/kisspng-organic-food-milk-food-gift-baskets-grocery-5abeaffc1e5b25 1.png"></div>
+            </div>
+        </div>
+        <div data-role="main" class="landing-content">
+            <div data-role="main" class="landing-options">
+                <div id="log-in" class="ui-icon">
+                    <a class="ui-link" href="#login">
+                        <div class="ui-circle"><img class="ui-image" src="images/noun_profile_232455 2.png"></div>
+                        <div class="ui-text">Login</div>
+                    </a>
+                </div>
+                <div id="sign-up" class="ui-icon">
+                    <a class="ui-link" href="#register">
+                        <div class="ui-circle"><img class="ui-image" src="images/noun_profile_232455 2.png"></div>
+                        <div class="ui-text">Signup</div>
+                    </a>
+                </div>
+                <div class="ui-icon">
+                    <a class="ui-link" href="#home" data-transition="pop">
+                        <div class="ui-circle"><img class="ui-image" src="images/noun_grocery_3617375 2.png"></div>
+                        <div class="ui-text">Store</div>
+                    </a>
+                </div>
+            </div>
+            <div data-role="main" class="ui-promo">
+                <div class="ui-promo-content">
+                    <div class="ui-promo-image"><img src="images/toppng 1.png"></div>
+                    <div class="ui-promo-text">
+                        <div class="landing-promotion-title">20% OFF</div>
+                        <div class="landing-promotion-sub-title">on Selected Vegetables</div>
+                        <div class="landing-promotion-details">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas accumsan lacus vel facilisis.
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-promo-content">
+                    <div class="ui-promo-image"><img src="images/meat 1.png"></div>
+                    <div class="ui-promo-text">
+                        <div class="landing-promotion-title">20% OFF</div>
+                        <div class="landing-promotion-sub-title">on Selected Vegetables</div>
+                        <div class="landing-promotion-details">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas accumsan lacus vel facilisis.
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-promo-content">
+                    <div class="ui-promo-image"><img src="images/sampath-bank-logo-660B6E8BC9-seeklogo 1.png"></div>
+                    <div class="ui-promo-text">
+                        <div class="landing-promotion-title">20% OFF</div>
+                        <div class="landing-promotion-sub-title">on Selected Vegetables</div>
+                        <div class="landing-promotion-details">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas accumsan lacus vel facilisis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="login" class="ui-body login-bg">
+        <div class="main-container">
+            <div data-role="header">
+                <a data-rel="back">Back</a>
+            </div>
+            <div class="login-container">
+                <div class="ui-login-image"><img src="images/Logo 2.png" style="height: 90px;"></div>
+                <div class="ui-tabs">
+                    <a href="#login">
+                        <div class="ui-login-text active">Login</div>
+                    </a>
+                    <a href="#register">
+                        <div class="ui-register-text inactive">Register</div>
+                    </a>
+                </div>
+                <div class="form-container">
+                    <!-- <form name="login" id="login-form" method="post"> -->
+                    <div class="ui-login-email lform-field">
+                        <input type="text" class="form-control" name=email id=lemail placeholder=Email required />
+                        <small id=semail></small>
+                    </div>
+                    <div class="ui-login-password lform-field">
+                        <input type="password" class="form-control" name=password id=lpassword placeholder=Password
+                            required />
+                        <small id=spass></small>
+                    </div>
+                    <div class="ui-login-button">
+                        <button onclick="lform()">Let's Shop</button>
+                    </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="register" class="ui-body login-bg">
+        <div class="main-container">
+            <div data-role="header">
+                <a data-rel="back">Back</a>
+            </div>
+            <div class="register-container">
+                <div class="ui-login-image"><img src="images/Logo 1.png" style="height: 70px;"></div>
+                <div class="ui-tabs">
+                    <a href="#login">
+
+                        <div class="ui-login-text inactive">Login</div>
+                    </a>
+                    <a href="#register">
+                        <div class="ui-register-text active">Register</div>
+                    </a>
+                </div>
+                <div class="form-container">
+                    <form name="login" id="register-form" method="get" action="/">
+                        <div class="ui-register-name rform-field">
+                            <input type="text" class="form-control" id=rname placeholder="Name" required>
+                        </div>
+                        <div class="ui-register-email rform-field">
+                            <input type="email" class="form-control" id=remail placeholder="Email" required>
+                        </div>
+                        <div class="ui-register-phonenumber rform-field">
+                            <input type="text" class="form-control" id=rphonenumber placeholder="Phone number" required>
+                        </div>
+                        <div class="ui-register-password rform-field">
+                            <input type="password" class="form-control" id=rpassword placeholder="Password" required>
+                        </div>
+                        <div class="ui-register-confirmpassword rform-field">
+                            <input type="password" class="form-control" id=rcpassword placeholder="Confirm Password"
+                                required>
+                        </div>
+                        <div class="ui-register-button">
+                            <button onclick="rform()">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="home" class="ui-body home">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <div class="nav-button-container">
+                    <button class="header__button" id="btnNavhome" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input type="search" placeholder="Search For Products..." /></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="home-content">
+                <div class="categories-content">
+                    <div class="title"><b>Categories</b></div>
+                    <div class="categories-list">
+                        <div class="categories">
+                            <img src="images/Vegetables.png">
+                            <div class="category-name">Vegetables</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/Fruits.png">
+                            <div class="category-name">Fruits</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/meat.png">
+                            <div class="category-name">Meat</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/fish.png">
+                            <div class="category-name">Fish</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/Dairy.png">
+                            <div class="category-name">Dairy</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/Drinks.png">
+                            <div class="category-name">Drinks</div>
+                        </div>
+                        <div class="categories">
+                            <img src="images/Alcohol.png">
+                            <div class="category-name">Alcohol</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="promotions-content">
+                    <div class="title"><b>Promotions</b></div>
+                    <div class="promotions-list">
+                        <div class="promotion">
+                            <img src="images/meat 1.png">
+                            <div class="promotion-name">
+                                <div class="promotion-title">20% OFF</div>
+                                <div class="promotion-sub-title">on Selected Vegetables</div>
+                            </div>
+                        </div>
+                        <div class="promotion">
+                            <img src="images/sampath-bank-logo-660B6E8BC9-seeklogo 1.png">
+                            <div class="promotion-name">
+                                <div class="promotion-title">20% OFF</div>
+                                <div class="promotion-sub-title">on Selected Vegetables</div>
+                            </div>
+                        </div>
+                        <div class="promotion">
+                            <img src="images/toppng 1.png">
+                            <div class="promotion-name">
+                                <div class="promotion-title">20% OFF</div>
+                                <div class="promotion-sub-title">on Selected Vegetables</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <div class="title"><b>Featured Items</b></div>
+                    <div class="featured-list">
+                        <div class="featured-vlist">
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item1">
+                                    <div class="featured-img">
+                                        <img src="images/PngItem_1112946 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Tomatoes</div>
+                            </div>
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item2">
+                                    <div class="featured-img">
+                                        <img src="images/coca 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Coca cola</div>
+                            </div>
+                        </div>
+                        <div class="featured-vlist">
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item3">
+                                    <div class="featured-img">
+                                        <img src="images/hawaian 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Hawaian cookies</div>
+                            </div>
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item1">
+                                    <div class="featured-img">
+                                        <img src="images/PngItem_1112946 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Tomatoes</div>
+                            </div>
+                        </div>
+                        <div class="featured-vlist">
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item2">
+                                    <div class="featured-img">
+                                        <img src="images/coca 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Coca cola</div>
+                            </div>
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item3">
+                                    <div class="featured-img">
+                                        <img src="images/hawaian 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Hawaian cookies</div>
+                            </div>
+                        </div>
+                        <div class="featured-vlist">
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item1">
+                                    <div class="featured-img">
+                                        <img src="images/PngItem_1112946 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Tomatoes</div>
+                            </div>
+                            <div class="featured-items">
+                                <a class="ui-link" href="#item2">
+                                    <div class="featured-img">
+                                        <img src="images/coca 1.png">
+                                    </div>
+                                </a>
+                                <div class="featured-name">Coca cola</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div>
+    </div>
+    <!-- This is item 1-->
+    <div data-role="page" data-theme="d" id="item1" class="ui-body">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavitem1" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input class="searchplace" type="search" placeholder="Search For Products..." />
+                </div>
+            </div>
+        </div>
+        <div role="main" class="content">
+            <div class="rating">
+                <img src="images/yellow star 3.png" />
+                <div class="rating-amount" id="rating-amount">0</div>
+            </div>
+            <div class="blue-container">
+                <div class="single-image">
+                    <img src="images/PngItem_1112946 1.png">
+                </div>
+                <div class="white-container">
+                    <div class="item-details">
+                        <div class="product-name"><b>Tomatoes</b></div>
+                        <div class="product-price">LKR.100/Kg</div>
+                        <div class="single-product-amount-container">
+                            <div class="amount-button"><button id="product-minus" onclick="product_minus(1)">-</button>
+                            </div>
+                            <div class="single-product-amount" id="single-product-amount"><input
+                                    id="single-product-amount1" type="number" value="1"></div>
+                            <div class="single-product-amount-unit">Kg</div>
+                            <div class="amount-button"><button id="product-plus" onclick="product_plus(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div align="center" class="pop" id="addtocartpop1">Added to cart.<br><button class="addtocartok1" id='closebtn'>OK</button></div>
+                    <div align="center" class="pop" id="wishlistpop1">Added to wishlist.<br><button class="wishlistok1" id='closebtn'>OK</button></div>
+                    <div class="buttons">
+                        <div class="addtocart" id="addtocart1">
+                            <button onclick="addtocart(1)">Add to Cart</button>
+                        </div>
+                        <div class="wishlist">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <input type="checkbox" name="wishlist1" id="wishlist1" class="custom">
+                                <label for="wishlist1">Wishlist</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <div>Rate product</div>
+                        <p class="stars">
+                            <span>
+                                <a class="star-1" onclick="addRating('item1', 1)"></a>
+                                <a class="star-2" onclick="addRating('item1', 2)"></a>
+                                <a class="star-3" onclick="addRating('item1', 3)"></a>
+                                <a class="star-4" onclick="addRating('item1', 4)"></a>
+                                <a class="star-5" onclick="addRating('item1', 5)"></a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="item-description">
+                        <p>
+                          "The tomato (Solanum lycopersicum) is a fruit from the nightshade family native 
+                          to South America. Despite botanically being a fruit, it's generally eaten and prepared like a vegetable."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-content">
+                <div class="similar-title"><b>Similar Items</b></div>
+                <div class="similar-list">
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="images/reviews.png" alt="" style="margin-left: 20px;">
+                <img src="images/comment bar.png" alt="">
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div>
+    </div>
+    <!-- This is item 2-->
+    <div data-role="page" data-theme="d" id="item2" class="ui-body">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavitem2" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input class="searchplace" type="search" placeholder="Search For Products..." />
+                </div>
+            </div>
+        </div>
+        <div role="main" class="content">
+            <div class="rating">
+                <img src="images/yellow star 3.png" />
+                <div class="rating-amount" id="rating-amount">0</div>
+            </div>
+            <div class="blue-container">
+                <div class="single-image">
+                    <img src="images/coca 1.png">
+                </div>
+                <div class="white-container">
+                    <div class="item-details">
+                        <div class="product-name"><b>Coca cola</b></div>
+                        <div class="product-price">LKR.150/btl</div>
+                        <div class="single-product-amount-container">
+                            <div class="amount-button"><button id="product-minus" onclick="product_minus(2)">-</button>
+                            </div>
+                            <div class="single-product-amount" id="single-product-amount"><input
+                                    id="single-product-amount2" type="number" value="1"></div>
+                            <div class="single-product-amount-unit">btl</div>
+                            <div class="amount-button"><button id="product-plus" onclick="product_plus(2)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div align="center" class="pop" id="addtocartpop2">Added to cart.<br><button class="addtocartok2" id='closebtn'>OK</button></div>
+                    <div align="center" class="pop" id="wishlistpop2">Added to wishlist.<br><button class="wishlistok2" id='closebtn'>OK</button></div>
+                    <div class="buttons">
+                        <div class="addtocart" id="addtocart2">
+                            <button onclick="addtocart(2)">Add to Cart</button>
+                        </div>
+                        <div class="wishlist">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <input type="checkbox" name="wishlist2" id="wishlist2" class="custom">
+                                <label for="wishlist2">Wishlist</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <div>Rate product</div>
+                        <p class="stars">
+                            <span>
+                                <a class="star-1" onclick="addRating('item2', 1)"></a>
+                                <a class="star-2" onclick="addRating('item2', 2)"></a>
+                                <a class="star-3" onclick="addRating('item2', 3)"></a>
+                                <a class="star-4" onclick="addRating('item2', 4)"></a>
+                                <a class="star-5" onclick="addRating('item2', 5)"></a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="item-description">
+                        <p>
+                          "The Coca-Cola Co. is the nonalcoholic beverage company, which 
+                          engages in the manufacture, market, and sale of non-alcoholic beverages 
+                          which include sparkling soft drinks, water, enhanced water and sports drinks, juice, dairy and 
+                          plant-based beverages, tea and coffee and energy drinks."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-content">
+                <div class="similar-title"><b>Similar Items</b></div>
+                <div class="similar-list">
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>Reviews (03)</div>
+                <div>Maggie2021</div>
+
+
+                <div>This I Loved this product it was pure choclate. rich in
+                    taste.</div>
+
+
+                <div>MorganCreams</div>
+
+
+                <div>This ice cream was very tasty and i would recommend
+                    it to anyone.</div>
+
+
+                <div>Fuzzyboi69</div>
+
+
+                <div>Worst packing ever. This shouldn’t even be a product.</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div>
+    </div>
+    <!-- This is item 3-->
+    <div data-role="page" data-theme="d" id="item3" class="ui-body">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavitem3" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input class="searchplace" type="search" placeholder="Search For Products..." />
+                </div>
+            </div>
+        </div>
+        <div role="main" class="content">
+            <div class="rating">
+                <img src="images/yellow star 3.png" />
+                <div class="rating-amount" id="rating-amount">0</div>
+            </div>
+            <div class="blue-container">
+                <div class="single-image">
+                    <img src="images/hawaian 1.png">
+                </div>
+                <div class="white-container">
+                    <div class="item-details">
+                        <div class="product-name"><b>Hawaian cookies</b></div>
+                        <div class="product-price">LKR.200/pct</div>
+                        <div class="single-product-amount-container">
+                            <div class="amount-button"><button id="product-minus" onclick="product_minus(3)">-</button>
+                            </div>
+                            <div class="single-product-amount" id="single-product-amount"><input
+                                    id="single-product-amount3" type="number" value="1"></div>
+                            <div class="single-product-amount-unit">pct</div>
+                            <div class="amount-button"><button id="product-plus" onclick="product_plus(3)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div align="center" class="pop" id="addtocartpop3">Added to cart.<br><button class="addtocartok3" id='closebtn'>OK</button></div>
+                    <div align="center" class="pop" id="wishlistpop3">Added to wishlist.<br><button class="wishlistok3" id='closebtn'>OK</button></div>
+                    <div class="buttons">
+                        <div class="addtocart" id="addtocart3">
+                            <button onclick="addtocart(3)">Add to Cart</button>
+                        </div>
+                        <div class="wishlist">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <input type="checkbox" name="wishlist3" id="wishlist3" class="custom">
+                                <label for="wishlist3">Wishlist</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <div>Rate product</div>
+                        <p class="stars">
+                            <span>
+                                <a class="star-1" onclick="addRating('item3', 1)"></a>
+                                <a class="star-2" onclick="addRating('item3', 2)"></a>
+                                <a class="star-3" onclick="addRating('item3', 3)"></a>
+                                <a class="star-4" onclick="addRating('item3', 4)"></a>
+                                <a class="star-5" onclick="addRating('item3', 5)"></a>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="item-description">
+                        <p>
+                          "A round shape Cracker which is light & crisp but flaky in texture. 
+                          A total taste experience of high quality at an affordable price. Vanilla 
+                          sponge, coffee syrup, sandwich by coffee cream, decoration chocolate and 
+                          cashew nuts."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="similar-content">
+                <div class="similar-title"><b>Similar Items</b></div>
+                <div class="similar-list">
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="similar-name">Similar Item</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>Reviews (03)</div>
+                <div>Maggie2021</div>
+
+
+                <div>This I Loved this product it was pure choclate. rich in
+                    taste.</div>
+
+
+                <div>MorganCreams</div>
+
+
+                <div>This ice cream was very tasty and i would recommend
+                    it to anyone.</div>
+
+
+                <div>Fuzzyboi69</div>
+
+
+                <div>Worst packing ever. This shouldn’t even be a product.</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="wishlist" class="ui-body">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavwishlist" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input class="searchplace" type="search" placeholder="Search For Products..." />
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="wishlist-content">
+                <b>Wishlist</b>
+                <button id="emailbtn" onclick="email()">Email wishlist</button>
+                <div align="center" class="pop" id="waddtocartpop">Added to cart.<br><button class="waddtocartok" id='closebtn'>OK</button></div>
+                <div class="wishlist-products" id="wishlist-products">
+                    <div class="wishlist-product-content" style="width: 200px;">
+                        <div class="wishlist-product-name">Wishlist empty</div>
+                        <div class="wishlist-product-price">Add items from product page</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="cart" class="ui-body home">
+        <div class="header">
+            <div class="ui-grid-b center">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavcart" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+                <div class="ui-block-b head-text-container">
+                    <div class="head-text"><b>Hey!</b></div>
+                    <div class="head-text">Let's get your</div>
+                    <div class="head-text">groceries sorted!</div>
+                </div>
+                <a class="ui-link" href="#profile">
+                    <div class="ui-block-c pro-button">
+                        <img class="ui-image" src="images/noun_profile_232455 2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search"><input type="search" placeholder="Search For Products..." /></div>
+            </div>
+        </div>
+        <div class="cart-content">
+            <div class="cart-items">
+                <div class="title"><b>Cart</b></div>
+                <div id="cart-list" class="cart-list">
+                    <div class="cart-no-product-content">
+                        <div class="wishlist-product-name">Cart empty</div>
+                        <div class="wishlist-product-price">Add items from product page</div>
+                    </div>
+                    <!-- <div class="cart-product-content">
+                        <div class="cart-product-remove"><img src="images/noun_Trash_4376064 6.png"></div>
+                        <div class="cart-product-img">
+                            <img src="s.jpeg">
+                        </div>
+                        <div class="details">
+                            <div class="cart-product-name">Featured Item 1</div>
+                            <div class="cart-product-price">LKR 200</div>
+                        </div>
+                        <div class="cart-amount">
+                            <div class="amount-button"><button id="plus" onclick="plus()">+</button></div>
+                            <div class="cart-product-amount" id="cart-product-amount">1</div>
+                            <div class="amount-button"><button id="minus" onclick="minus()">-</button></div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="total">Total : LKR <div id="total">0</div>
+            </div>
+            <a class="ui-link" href="#checkout-page">
+                <div class="checkout"><button id="checkout-button1">Checkout</button></div>
+            </a>
+        </div>
+        <!-- <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div> -->
+    </div>
+    <div data-role="page" data-theme="d" id="checkout-page" class="ui-body">
+        <div class="header">
+            <div class="left">
+                <a class="nav-button-container">
+                    <button class="header__button" id="btnNavcheckout" type="button">
+                        <div class="ui-block-a nav-button">
+                            <div class="nav-line-container">
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                                <div class="nav-line"></div>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="checkout-content">
+            <div class="checkout-user-details">
+                <div class="checkout-user-name" id="checkout_user_name">Lewis Hamilton</div><div class="checkout-user-number" id="checkout_user_no">0123456789</div>
+                <div class="checkout-user-address"><textarea name="" id="" cols="5" rows="5" placeholder="112/4 bambalapitiya,colombo 4 chinatown western province Srilanka 10530"></textarea></div>
+            </div>
+            <div class="divider"><img src="images/divider.png" alt=""></div>
+            <div class="checkout-shipping-method">
+                <div class="checkout-shipping-method-title">Shipping Method</div>
+                <div class="checkout-shipping-method-details-container">
+                    <div class="tick"><img src="images/tick.png" alt=""></div>
+                    <div class="checkout-shipping-method-details">
+                        <div class="standard-shipping-title">STANDARD SHIPPING</div>
+                        <div class="standard-shipping-price-container">
+                            <div class="standard-shipping-price">LKR.500 </div>
+                            <div class="standard-shipping-price-details">(1-4 Business days. With detailed Tracking Information. Provide Correct Phone Number)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-payment-method">
+                <div class="checkout-payment-method-title">Payment Method</div>
+                <div class="checkout-payment-method-details-container">
+                    <div class="tick"><img src="images/tick.png" alt=""></div>
+                    <div class="checkout-payment-card-details">
+                        <img src="images/noun_credit cart_3267009 1.png" alt="">
+                        Credit/Debit Card
+                    </div>
+                </div>
+                <div class="checkout-payment-cards">
+                    <img src="images/visa 2.png" alt="">
+                    <img src="images/mastercard 1.png" alt="">
+                    <img src="images/americanex 1.png" alt="">
+                </div>
+            </div>
+            <div class="discounts">
+                <div class="vouchers">
+                    <div class="vouchers-title">Apply Voucher</div>
+                    <div id="vouchers">
+                        <div class="vclose">close</div>
+                        <center>No vouchers available</center>
+                    </div>
+                </div>
+                <hr class="hr">
+                <div class="points">
+                    <div class="points-title">Points</div>
+                    <div id="points">
+                        <div class="pclose">close</div>
+                        <center>
+                            <div class="display-points">Points: <div id="points-available">0</div></div>
+                            <div id="point-input"><input type="number" id="input-points" value="0"></div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-details">
+                <div class="checkout-retail-price"><div>Retail Price:</div> <div id="retailtotal">0</div> </div>
+                <div class="checkout-shipping"> <div>Shipping Fee: </div><div>+500</div></div>
+                <div class="checkout-discount-price"><div>Discount:</div> <div id="discount">0</div> </div>
+                <div class="checkout-sub-total"><div>Subtotal:</div> <div id="subtotal1">0</div></div>
+            </div>
+            <hr>
+            <form id="frmBooking" name="bookingForm" action="_self">
+                <input id="item_name" name="item_name" type="hidden" value="Items">
+            </form>
+            <div align="center" id="thankyouPayment">Your Order has been placed.<br><a href='#home'><button id='closebtn'>OK</button></a></div>
+        </div>
+        <div class="checkout-footer">
+            <div class="subtotal">Total : LKR <div id="subtotal2">0</div>
+            </div>
+            <div class="checkout"><button id="checkout-button2">Checkout</button></div>
+        </div>
+        <!-- <div class="footer">
+            <div class="footer-blue"><img src="images/Freshway.png"></div>
+            <div class="footer-white">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a footer-links"><u>Home</u> <u>Categories</u> <u>About Us</u></div>
+                    <div class="ui-block-b footer-links"><u>Privacy policy</u> <u>FAQs</u> <u>Stores</u></div>
+                </div>
+                <div class="ui-grid-solo rights"><b>©2015 - 2021 Freshway, PLC. All rights reserved</b></div>
+            </div>
+        </div> -->
+    </div>
+    <div data-role="page" data-theme="d" id="points-page" class="ui-body">
+        <div class="header">
+          <div class="ui-grid-b center">
+            <a class="nav-button-container">
+              <button class="header__button" id="btnNavpoints" type="button">
+                <div class="ui-block-a nav-button">
+                  <div class="nav-line-container">
+                    <div class="nav-line"></div>
+                    <div class="nav-line"></div>
+                    <div class="nav-line"></div>
+                  </div>
+                </div>
+              </button>
+            </a>
+            <div class="ui-block-b head-text-container">
+              <div class="head-text"><b>Hey!</b></div>
+              <div class="head-text">Let's get your groceries sorted!</div>
+            </div>
+            <a class="ui-link" href="#profile">
+              <div class="ui-block-c pro-button">
+                <img class="ui-image" src="images/noun_profile_232455 2.png" />
+              </div>
+            </a>
+          </div>
+          <div class="search-bar">
+            <div class="search">
+              <input class="searchplace" type="search" placeholder="Search For Products..." />
+            </div>
+          </div>
+        </div>
+        <div role="main" class="point-content">
+          <div class="checkin">
+            <div class="point-img">
+              <img src="images/points 1.png" alt="" />
+            </div>
+            <div class="pointsbar">
+              <center>
+                <p class="checkinandearn">CHECK IN AND EARN POINTS</p>
+              </center>
+              <div class="circles">
+                <div class="circle" id="daycircle1">&nbsp; +1</div>
+                <div class="circle" id="daycircle2">&nbsp; +3</div>
+                <div class="circle" id="daycircle3">&nbsp; +5</div>
+                <div class="circle" id="daycircle4">&nbsp; +5</div>
+                <div class="circle" id="daycircle5">&nbsp;+10</div>
+                <div class="circle" id="daycircle6">&nbsp;+15</div>
+                <div class="circle" id="daycircle7">&nbsp;+20</div>
+              </div>
+              <div class="pointsdays">
+                <div class="pointsday">Day 1</div>
+                <div class="pointsday">Day 2</div>
+                <div class="pointsday">Day 3</div>
+                <div class="pointsday">Day 4</div>
+                <div class="pointsday">Day 5</div>
+                <div class="pointsday">Day 6</div>
+                <div class="pointsday">Day 7</div>
+              </div>
+            </div>
+          </div>
+          <img src="images/pointsbg.png" class="pointsbg" />
+        </div>
+        <div class="checkinandpoints">
+          <center>
+            <button id="checkinbutton" onclick="checkIn()">Check In</button>
+          </center>
+          <center>
+            <p id="totalpointstext">TOTAL POINTS</p>
+          </center>
+          <center>
+            <p id="totalpointsamount"><b>00</b></p>
+          </center>
+        </div>
+    </div>
+    <div data-role="page" data-theme="d" id="profile" class="ui-body">
+    <div class="header">
+        <div class="ui-grid-b center">
+        <a class="nav-button-container">
+            <button class="header__button" id="btnNavprofile" type="button">
+            <div class="ui-block-a nav-button">
+                <div class="nav-line-container">
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+                </div>
+            </div>
+            </button>
+        </a>
+        <div class="ui-block-b head-text-container">
+            <div class="head-text"><b>Hey!</b></div>
+            <div class="head-text">Let's get your groceries sorted!</div>
+        </div>
+        <a class="ui-link" href="#profile">
+            <div class="ui-block-c pro-button">
+            <img class="ui-image" src="images/noun_profile_232455 2.png" />
+            </div>
+        </a>
+        </div>
+    </div>
+    <div class="profileintro">
+        <center>
+        <p id="profiletext"><b>Profile</b></p>
+        </center>
+        <center>
+        <p id="profilegreeting">Good Evening!</p>
+        </center>
+        <center>
+        <p id="profilegreeting2">Hope you're having a good day!</p>
+        </center>
+    </div>
+    <hr id="proline" />
+    <div class="profileicons">
+        <center>
+        <button id="profilebutton">
+            <img src="images/vouch.png" class="profileicon" />
+        </button>
+        <button id="profilebutton">
+            <img src="images/my orders.png" class="profileicon" />
+        </button>
+        <a href="#points-page"><button id="profilebutton">
+            <img src="images/points.png" class="profileicon" /></button></a>
+        <a href="#wishlist"><button id="profilebutton">
+            <img src="images/wishlist2.png" class="profileicon" /></button></a>
+        <button id="profilebutton">
+            <img src="images/support.png" class="profileicon" />
+        </button>
+        </center>
+        <div class="profileiconstexts">
+        <div class="profileiconstext">Vouchers</div>
+        <div class="profileiconstext">My Orders</div>
+        <div class="profileiconstext">Points</div>
+        <div class="profileiconstext">Wishlist</div>
+        <div class="profileiconstext">Support</div>
+        </div>
+    </div>
+    <div class="scanqr">
+        <center>
+        <p id="scantext"><b>Scan</b></p>
+        <p id="scanqrtext"><b>QR</b></p>
+        <img src="images/qrimg.png" class="qrimg" />
+        </center>
+    </div>
+    </div>
+    <div data-role="page" data-theme="d" id="product-page" class="ui-body">
+    <div class="header">
+        <div class="ui-grid-b center">
+        <a class="nav-button-container">
+            <button class="header__button" id="btnNavproducts" type="button">
+            <div class="ui-block-a nav-button">
+                <div class="nav-line-container">
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+                <div class="nav-line"></div>
+                </div>
+            </div>
+            </button>
+        </a>
+        <div class="ui-block-b head-text-container">
+            <div class="head-text"><b>Hey!</b></div>
+            <div class="head-text">Let's get your groceries sorted!</div>
+        </div>
+        <a class="ui-link" href="#profile">
+            <div class="ui-block-c pro-button">
+            <img class="ui-image" src="images/noun_profile_232455 2.png" />
+            </div>
+        </a>
+        </div>
+        <div class="search-bar">
+        <div class="search">
+            <input class="searchplace" type="search" placeholder="Search For Products..." />
+        </div>
+        </div>
+    </div>
+    <div class="productbg">
+        <img src="images/Group 47.png" />
+    </div>
+    <div class="producttype">
+        <p id="protypetext"><b>Fruits</b></p>
+    </div>
+    <div id="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+        <a onclick="filterProducts('name-ascending')">A-Z</a>
+        <a onclick="filterProducts('name-descending')">Z-A</a>
+        <a onclick="filterProducts('price-lth')">Price Low-High</a>
+        <a onclick="filterProducts('price-htl')">Price High-Low</a>
+        <a onclick="filterProducts('featured')">Featured Products</a>
+        </div>
+    </div>
+    <div id="productDisplay"></div>
+    </div>
+    
+</body>
+
+<script src="script.js"></script>
+
+</html>
